@@ -1,0 +1,25 @@
+.wrapper {
+  position: relative;
+}
+
+.menuWrapper {
+  position: absolute;
+  width: 140px;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 6px;
+  top: 20px;
+  left: -80px;
+  box-shadow: 0 2px 4px rgb(190, 188, 188);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  gap: 4px;
+}
+
+.list li {
+  padding: 6px 8px;
+}

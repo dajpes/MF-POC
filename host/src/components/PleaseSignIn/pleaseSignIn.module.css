@@ -1,0 +1,13 @@
+.wrapper {
+  display: grid;
+  grid-template-areas: ". messageContainer .";
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+.container {
+  grid-area: messageContainer;
+}
+
+.title {
+  text-align: center;
+}

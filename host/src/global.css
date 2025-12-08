@@ -1,0 +1,8 @@
+:root {
+  /* Global color variables */
+  --primary: #00e8fc;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}

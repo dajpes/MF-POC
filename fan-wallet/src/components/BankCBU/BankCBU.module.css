@@ -1,0 +1,35 @@
+.card {
+  background: linear-gradient(180deg, #ffffff, #f7fbfd);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  padding: 16px 18px;
+  max-width: 420px;
+  box-shadow: 0 6px 20px rgba(2, 16, 24, 0.06);
+}
+
+.heading {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: #0f1724;
+  font-weight: 600;
+}
+
+.cbuRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cbuValue {
+  font-size: 18px;
+  letter-spacing: 0.6px;
+  color: #04263a;
+  margin: 6px 0 0 0;
+}
+
+.alias {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #25607a;
+}

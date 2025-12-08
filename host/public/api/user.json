@@ -1,0 +1,6 @@
+{
+  "id": 1,
+  "email": "test@email.com",
+  "name": "Test User",
+  "token": "fake-jwt-token-123456"
+}

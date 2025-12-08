@@ -1,0 +1,30 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.labelTitle {
+  color: rgb(109, 104, 104);
+}
+
+.input {
+  border-radius: 4px;
+  padding: 6px;
+}
+.errorMessage {
+  color: red;
+  font-size: small;
+}
+
+.submitButton {
+  padding: 6px;
+  background-color: var(--primary);
+  border-radius: 4px;
+}

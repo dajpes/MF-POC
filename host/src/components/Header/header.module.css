@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: aqua;
+  padding-inline: 30px;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+  & li {
+    list-style: none;
+  }
+}
+
+.button {
+  font-weight: 700;
+}

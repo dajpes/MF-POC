@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "section": "A",
+        "row": 1,
+        "seat": 1
+    },
+    {
+        "id": 2,
+        "section": "B",
+        "row": 2,
+        "seat": 5
+    }
+]
