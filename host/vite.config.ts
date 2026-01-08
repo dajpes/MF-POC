@@ -12,7 +12,6 @@ export default defineConfig(({ mode }) => {
       react(),
       biomePlugin({
         mode: 'check',
-        files: './src/.',
         applyFixes: true,
       }),
       federation({
