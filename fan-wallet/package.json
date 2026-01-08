@@ -8,7 +8,7 @@
     "typecheck": "tsc -b",
     "build": "vite build",
     "build:watch": "tsc -b && vite build --watch",
-    "lint": "eslint .",
+    "biome": "biome lint && biome format --fix",
     "preview": "vite preview",
     "test": "vitest --run"
   },
