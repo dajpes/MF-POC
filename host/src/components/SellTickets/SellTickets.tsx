@@ -37,7 +37,7 @@ export default function SellTickets() {
   }
 
   if (!tickets.length) {
-    return <p className={styles.noTicketsfound}>No tickests found.</p>
+    return <p className={styles.noTicketsfound}>No tickets found.</p>
   }
 
   return (
