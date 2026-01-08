@@ -21,7 +21,7 @@ export default function SignInModal({ onDismiss }: Props) {
     resolver: zodResolver(SignInSchema),
   })
 
-  const onSubmit: SubmitHandler<SignInFields> = async (data) => {
+  const onSubmit: SubmitHandler<SignInFields> = async () => {
     await new Promise((r) => setTimeout(r, 600))
 
     const res = await fetch('/api/user.json')

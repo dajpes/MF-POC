@@ -5,10 +5,11 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"build": "tsc -b && vite build",
+		"typecheck": "tsc -b",
+		"build": "vite build",
 		"lint": "eslint .",
 		"preview": "vite preview",
-		"test": "vitest"
+		"test": "vitest --run"
 	},
 	"dependencies": {
 		"@biomejs/biome": "^1.9.4",
