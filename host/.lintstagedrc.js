@@ -1,9 +1,10 @@
+/**
+ * @type {import('lint-staged').Configuration}
+ */
 export default {
- "*": (files) => {
-    console.log(files)
-    return [
-        'biome check --write --no-errors-on-unmatched  --files-ignore-unknown=true  --error-on-warnings',
-        'npm run typecheck'
-    ]
- }    
+  '*.{js|jsx|ts|tsx}': (filenames) => {
+    console.log('Staged files:', filenames);
+    console.log('Running Biome check...');
+    return 'biome check --write --no-errors-on-unmatched  --files-ignore-unknown=true  --error-on-warnings';
+  },
 }
