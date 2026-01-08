@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  fan-wallet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: fan-wallet/package-lock.json
+
+      - name: Install Dependencies
+        working-directory: ./fan-wallet
+        run: npm ci
+
+      - name: Lint
+        working-directory: ./fan-wallet
+        run: npm run lint
+
+      - name: Build
+        working-directory: ./fan-wallet
+        run: npm run build
+
+      - name: Test
+        working-directory: ./fan-wallet
+        run: npm run test
+
+  host:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: host/package-lock.json
+
+      - name: Install Dependencies
+        working-directory: ./host
+        run: npm ci
+
+      - name: Lint
+        working-directory: ./host
+        run: npm run lint
+
+      - name: Build
+        working-directory: ./host
+        run: npm run build
+
+      - name: Test
+        working-directory: ./host
+        run: npm run test
