@@ -9,6 +9,7 @@
     "build": "vite build",
     "build:watch": "tsc -b && vite build --watch",
     "biome": "biome check --write",
+    "biome:ci": "biome ci",
     "preview": "vite preview",
     "test": "vitest --run"
   },
