@@ -6,9 +6,15 @@
     "indentWidth": 2,
     "lineEnding": "lf",
     "lineWidth": 80,
-    "attributePosition": "auto"
+    "attributePosition": "auto",
+    "include": ["src/**/*", "vite.config.ts", "vitest.config.ts", "biome.json"],
+    "ignore": ["node_modules/**/*"]
   },
-  "linter": { "enabled": true },
+  "linter": {
+    "enabled": true,
+    "include": ["src/**/*", "vite.config.ts", "vitest.config.ts", "biome.json"],
+    "ignore": ["node_modules/**/*"]
+  },
   "javascript": {
     "formatter": {
       "jsxQuoteStyle": "double",

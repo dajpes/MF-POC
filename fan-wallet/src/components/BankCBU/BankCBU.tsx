@@ -13,7 +13,9 @@ export default function BankCBU() {
   useEffect(() => {
     if (bankCBU) return
     const getBankCbuDetails = async () => {
-      const fetchBankCBUResponse = await fetch('/api/bank-cbu.json')
+      const fetchBankCBUResponse = await fetch(
+        'https://raw.githubusercontent.com/dajpes/MF-POC/refs/heads/master/fan-wallet/public/api/bank-cbu.json',
+      )
       const bankCBUData = await fetchBankCBUResponse.json()
       if (bankCBUData) {
         setBankCBU(bankCBUData)
