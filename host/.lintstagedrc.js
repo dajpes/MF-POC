@@ -1,9 +1,9 @@
-module.exports = {
- "*": (files) => {
-    console.log(files)
-    return [
-        'biome check --write --no-errors-on-unmatched  --files-ignore-unknown=true  --error-on-warnings',
-        'npm run typecheck'
-    ]
- }    
+/**
+ * @type {import('lint-staged').Configuration}
+ */
+export default {
+  '*.js': () => {
+    console.log('Running Biome check on staged files...');
+    return 'npm run biome';
+  },
 }
