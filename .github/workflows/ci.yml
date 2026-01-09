@@ -21,7 +21,7 @@ jobs:
 
       - name: Install Dependencies
         working-directory: ./fan-wallet
-        run: npm ci
+        run: npm ci --ignore-scripts
 
       - name: Lint
         working-directory: ./fan-wallet
@@ -49,7 +49,7 @@ jobs:
 
       - name: Install Dependencies
         working-directory: ./host
-        run: npm ci
+        run: npm ci --ignore-scripts
 
       - name: Lint
         working-directory: ./host

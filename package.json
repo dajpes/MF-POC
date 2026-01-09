@@ -19,7 +19,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky || true"
   },
   "devDependencies": {
     "husky": "^9.1.7",
