@@ -10,8 +10,7 @@
 		"biome": "biome check --write",
 		"biome:ci": "biome ci",
 		"preview": "vite preview",
-		"test": "vitest --run",
-		"prepare": "husky"
+		"test": "vitest --run"
 	},
 	"dependencies": {
 		"@biomejs/biome": "^1.9.4",
