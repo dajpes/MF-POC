@@ -1,6 +1,12 @@
-# Microfrontend POC
+## Architecture Overview
 
-This is a Proof of Concept (POC) project for implementing a **Microfrontend Architecture** using **Module Federation**.
+This project demonstrates a production-oriented Microfrontend architecture using Module Federation at runtime.
+
+- The **host** application acts as a shell responsible for layout, routing, and shared dependencies.
+- The **fan-wallet** microfrontend exposes isolated UI functionality that can be independently developed, tested, and deployed.
+- The host dynamically loads the remote module at runtime using Vite's Module Federation plugin.
+
+This approach enables team autonomy, independent deployments, and scalable frontend architecture.
 
 ## Project Structure
 
@@ -14,6 +20,14 @@ For POC purposes, this project is divided into two separate repositories:
 The `fan-wallet` component is federated into the `host` application at runtime using Vite's Module Federation plugin.
 
 ---
+
+## Module Federation Details
+
+- Remote modules are loaded at runtime without requiring a rebuild of the host.
+- Shared dependencies such as React are configured to avoid duplication.
+- Each microfrontend can evolve independently while maintaining contract stability
+- This model supports team-level ownership, allowing different teams to work and deploy independently.
+
 
 ## Tech Stack
 
@@ -45,7 +59,7 @@ npm install
 npm run preview --watch
 ```
 
-> This will allow the MF app to be visible on the host app.
+> The `preview` command is used to simulate a production-like environment for the remote module, allowing it to be consumed by the host application at runtime.
 
 ### Host
 
@@ -53,6 +67,20 @@ npm run preview --watch
 npm install
 npm run dev
 ```
+
+## Architectural Decisions & Trade-offs
+
+- **Vite** was chosen for its fast development experience and native ESM support.
+- **Module Federation** enables runtime integration but introduces additional complexity around versioning and shared dependencies.
+- This POC prioritizes architectural clarity over feature completeness.
+- In a production environment, this setup could be complemented with SSR frameworks like Next.js, depending on SEO and rendering requirements.
+
+
+## Production Considerations
+
+- Static assets could be deployed to object storage (e.g., S3) and served behind a CDN such as AWS CloudFront or Fastly to improve global performance and caching.
+- Each microfrontend could have an independent CI/CD pipeline to support autonomous deployments.
+
 
 ## Future Improvements
 
