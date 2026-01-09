@@ -13,6 +13,7 @@ export default defineConfig(({ mode }) => {
       biomePlugin({
         mode: 'check',
         applyFixes: true,
+        biomeCommandBase: 'npx biome',
       }),
       federation({
         name: 'host_app',
