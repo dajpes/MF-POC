@@ -33,6 +33,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         isError: false,
       }
     } catch (e) {
+      // biome-ignore lint/suspicious/noConsole: intentional error logging
       console.error('Failed to write user to localStorage', e)
       return {
         isSuccess: false,
@@ -46,6 +47,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       localStorage.removeItem(STORAGE_KEY)
     } catch (e) {
+      // biome-ignore lint/suspicious/noConsole: intentional error logging
       console.error('Failed to remove user from localStorage', e)
     }
   }

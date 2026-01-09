@@ -13,7 +13,12 @@
   "linter": {
     "enabled": true,
     "include": ["src/**/*", "vite.config.ts", "vitest.config.ts", "biome.json"],
-    "ignore": ["node_modules/**/*"]
+    "ignore": ["node_modules/**/*"],
+    "rules": {
+      "suspicious": {
+        "noConsole": "error"
+      }
+    }
   },
   "javascript": {
     "formatter": {
