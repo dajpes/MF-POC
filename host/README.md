@@ -1,73 +1,71 @@
-# React + TypeScript + Vite
+# Microfrontend POC
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a Proof of Concept (POC) project for implementing a **Microfrontend Architecture** using **Module Federation**.
 
-Currently, two official plugins are available:
+## Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+For POC purposes, this project is divided into two separate repositories:
 
-## React Compiler
+| Repository     | Description                                                                                                                           |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| **fan-wallet** | A Microfrontend component that encapsulates wallet functionality. It is designed to be independently developed, tested, and deployed. |
+| **host**       | The host/shell application that integrates and consumes the `fan-wallet` microfrontend component.                                     |
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+The `fan-wallet` component is federated into the `host` application at runtime using Vite's Module Federation plugin.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Technology                | Purpose                                                                             |
+| ------------------------- | ----------------------------------------------------------------------------------- |
+| **React**                 | UI library for building component-based user interfaces                             |
+| **TypeScript**            | Static type checking for improved developer experience and code quality             |
+| **Vite**                  | Fast build tool and development server with Module Federation support               |
+| **CSS Modules**           | Scoped styling to prevent style collisions between microfrontends                   |
+| **Zod**                   | Schema validation and parsing for runtime type safety                               |
+| **Biome**                 | Fast, all-in-one linter and formatter for code quality                              |
+| **Vitest**                | Unit testing framework with native Vite integration                                 |
+| **React Testing Library** | Testing utilities for React components                                              |
+| **Husky**                 | Runs lint-staged commands before a commit is completed and fails on any error found |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher recommended)
+- npm
+
+### Fan-Wallet (Microfrontend)
+
+```bash
+npm install
+npm run preview --watch
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+> This will allow the MF app to be visible on the host app.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Host
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
+
+## Future Improvements
+
+### Critical Features
+
+- **Comprehensive Documentation Portal with Storybook**: To serve as a centralized hub for both UI components and engineering processes. Beyond an interactive sandbox for isolated component development, it will host critical documentation such as onboarding guides, release workflows, and monitoring procedures, ensuring a single source of truth for the team.
+- **Internationalization with react-i18next**: To implement robust localization strategies catering to diverse market domains. This setup prepares the application for future integration with Translation Management Systems (TMS) such as Transifex for automated, large-scale globalization workflows.
+- **Design System & Shared Component Library**: To establish a standardized source of truth for design tokens (typography, spacing, media queries, colors, etc) and reusable UI components. This ensures consistency across the application and facilitates the future extraction of a standalone library for consumption by multiple repositories.
+- **E2E Testing with Playwright or Cypress**: To implement comprehensive automated testing of user flows across the distributed microfrontend architecture.
+- **Accessibility (a11y) Compliance**: To ensure the application adheres to WCAG standards, making it inclusive for all users. For enterprise-grade auditing and compliance management, we can utilize solutions like **Level Access** to facilitate rigorous automated scanning and manual audits.
+- **Redux Toolkit & RTK Query**: To separate global state management from data fetching logic. This enables caching, efficient data synchronization, and isolated hooks for API calls, preventing state pollution and ensuring predictable data flow.
+
+### Nice to Have
+
+- **Feature Flags & A/B Testing**: To enable dynamic feature management (toggling features on/off) without code deployments. This lays the groundwork for progressive rollouts and integrates with analytics for data-driven A/B testing optimization.
+- **Error Monitoring with Bugsnag**: To provide real-time stability monitoring and rapid diagnostic insights. This allows the team to proactively identify and resolve production errors before they impact a significant portion of the user base.
